@@ -16,13 +16,13 @@ WORKDIR /opt/drivers
 RUN apt-get update -y && apt-get install -y unzip unixodbc-dev unixodbc-bin unixodbc
 
 RUN wget \
-    ${BUCKET_URI}/${DRIVER_MAJOR_VERSION}/SimbaSparkODBC-${DRIVER_FULL_VERSION}-Debian-64bit.zip
+    ${BUCKET_URI}/${DRIVER_MAJOR_VERSION}/${ZIP_FILE_NAME}
 
 RUN unzip ${ZIP_FILE_NAME} && rm -f ${ZIP_FILE_NAME}
 RUN apt-get install -y ./${FOLDER_NAME}/*
 
-RUN mkdir /opt/app
-WORKDIR /opt/app
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
 ADD requirements.txt requirements.txt
 
