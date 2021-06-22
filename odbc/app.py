@@ -1,12 +1,13 @@
 import os
 import pyodbc
 from tabulate import tabulate
-import logging 
+import logging
 
 logging.basicConfig(
     level=logging.DEBUG,
     format="[%(asctime)s][%(levelname)s][%(name)s][%(funcName)s][%(message)s]",  # noqa
 )
+
 
 for var in ["DATABRICKS_HOST", "DATABRICKS_TOKEN", "DATABRICKS_HTTP_PATH"]:
     if var not in os.environ:
@@ -25,12 +26,13 @@ connection_string = "".join(
         f";Host={DATABRICKS_HOST}",
         ";PORT=443",
         f";HTTPPath={DATABRICKS_HTTP_PATH}",
-        ";AuthMech=11",
+        ";AuthMech=3",
+        ";Schema=default",
         ";SSL=1",
         ";ThriftTransport=2",
         ";SparkServerType=3",
-        ";Auth_Flow=0",
-        f";Auth_AccessToken={DATABRICKS_TOKEN}",
+        ";UID=token",
+        f";PWD={DATABRICKS_TOKEN}",
     ]
 )
 

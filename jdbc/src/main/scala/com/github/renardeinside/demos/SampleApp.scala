@@ -1,8 +1,9 @@
 package com.github.renardeinside.demos
 
 import java.sql.DriverManager
+import com.typesafe.scalalogging.LazyLogging
 
-object SampleApp extends App {
+object SampleApp extends App  with LazyLogging {
 
   val driverClassName = "com.simba.spark.jdbc.Driver"
 
@@ -23,9 +24,13 @@ object SampleApp extends App {
     url
   }
 
+  logger.info("Checking driver class")
   Class.forName(driverClassName)
+  logger.info("Checking driver class - done")
 
+  logger.info("Connecting to the SQL endpoint")
   val connection = DriverManager.getConnection(connectionUrl)
+  logger.info("Connecting to the SQL endpoint - done")
 
   try {
     val statement = connection.createStatement()
@@ -41,4 +46,5 @@ object SampleApp extends App {
     case e: Throwable => e.printStackTrace()
   }
   connection.close()
+  logger.info("Connection closed gracefully")
 }
