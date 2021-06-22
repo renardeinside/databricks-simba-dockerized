@@ -19,3 +19,7 @@ Please setup properties in the `.env` file accordingly to `.env.sample`
 - example app and Dockerfile is located in `/jdbc` directory
 
 
+
+# Legal information
+
+Please note that by downloading the driver during Docker build you agree with Terms and Conditions provided on the [official download page](https://databricks.com/spark/jdbc-drivers-download).
