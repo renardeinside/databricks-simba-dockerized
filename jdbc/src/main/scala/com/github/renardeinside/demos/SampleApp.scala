@@ -3,7 +3,7 @@ package com.github.renardeinside.demos
 import java.sql.DriverManager
 import com.typesafe.scalalogging.LazyLogging
 
-object SampleApp extends App  with LazyLogging {
+object SampleApp extends App with LazyLogging {
 
   val driverClassName = "com.simba.spark.jdbc.Driver"
 
