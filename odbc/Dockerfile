@@ -2,7 +2,6 @@ FROM continuumio/miniconda3
 
 ARG DRIVER_MAJOR_VERSION="2.6.16"
 ARG DRIVER_MINOR_VERSION=1019
-ARG DRIVER_FILE_VERSION=2
 ARG BUCKET_URI="https://databricks-bi-artifacts.s3.us-east-2.amazonaws.com/simbaspark-drivers/odbc"
 
 ENV DRIVER_FULL_VERSION=${DRIVER_MAJOR_VERSION}.${DRIVER_MINOR_VERSION}

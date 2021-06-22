@@ -2,7 +2,6 @@ FROM maven:3.5-jdk-8 AS build
 
 ARG DRIVER_MAJOR_VERSION="2.6.17"
 ARG DRIVER_MINOR_VERSION=1021
-ARG DRIVER_FILE_VERSION=2
 ARG BUCKET_URI="https://databricks-bi-artifacts.s3.us-east-2.amazonaws.com/simbaspark-drivers/jdbc"
 
 ENV DRIVER_FULL_VERSION=${DRIVER_MAJOR_VERSION}.${DRIVER_MINOR_VERSION}
